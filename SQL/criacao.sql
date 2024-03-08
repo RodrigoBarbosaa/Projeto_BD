@@ -91,7 +91,7 @@ CREATE TABLE Avalia (
     username VARCHAR(255),
     review TEXT,
     data DATE NOT NULL,
-    estrelas DECIMAL(1,1) NOT NULL,
+    estrelas DECIMAL(2,1) NOT NULL,
     PRIMARY KEY (cod, username),
     FOREIGN KEY (cod) REFERENCES Obras(cod),
     FOREIGN KEY (username) REFERENCES Conta(username)
