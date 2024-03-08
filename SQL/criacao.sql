@@ -1,0 +1,119 @@
+-- Tabela Usuário
+CREATE TABLE Usuario (
+    email VARCHAR(255) PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL
+);
+
+-- Tabela Conta
+CREATE TABLE Conta (
+    username VARCHAR(255) PRIMARY KEY,
+    senha VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    FOREIGN KEY (email) REFERENCES Usuario(email)
+);
+
+-- Tabela Seguir
+CREATE TABLE Seguir (
+    segue VARCHAR(255),
+    seguido VARCHAR(255),
+    data DATE,
+    PRIMARY KEY (segue, seguido),
+    FOREIGN KEY (segue) REFERENCES Conta(username),
+    FOREIGN KEY (seguido) REFERENCES Conta(username)
+);
+
+-- Tabela Artigo
+CREATE TABLE Artigo (
+    username VARCHAR(255),
+    data DATE,
+    type VARCHAR(255),
+    titulo VARCHAR(255),
+    visualizacoes INT,
+    conteudo TEXT,
+    PRIMARY KEY (username, data, titulo),
+    FOREIGN KEY (username) REFERENCES Conta(username)
+);
+
+-- Tabela Obras
+CREATE TABLE Obras (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(255),
+    genero VARCHAR(255)
+);
+
+-- Tabela Filmes
+CREATE TABLE Filmes (
+    cod INT PRIMARY KEY,
+    elenco VARCHAR(255),
+    atores VARCHAR(255),
+    producao VARCHAR(255),
+    diretor VARCHAR(255),
+    FOREIGN KEY (cod) REFERENCES Obras(cod)
+);
+
+-- Tabela Atores
+CREATE TABLE Atores (
+    cod INT,
+    ator VARCHAR(255),
+    PRIMARY KEY (cod, ator),
+    FOREIGN KEY (cod) REFERENCES Filmes(cod)
+);
+
+-- Tabela Producao
+CREATE TABLE Producao (
+    cod INT,
+    producao VARCHAR(255),
+    PRIMARY KEY (cod, producao),
+    FOREIGN KEY (cod) REFERENCES Filmes(cod)
+);
+
+-- Tabela Livros
+CREATE TABLE Livros (
+    cod INT PRIMARY KEY,
+    paginas INT,
+    escritor VARCHAR(255),
+    FOREIGN KEY (cod) REFERENCES Obras(cod)
+);
+
+-- Tabela Playlist
+CREATE TABLE Playlist (
+    id INT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    FOREIGN KEY (username) REFERENCES Conta(username)
+);
+
+-- Tabela Avalia
+CREATE TABLE Avalia (
+    cod INT,
+    username VARCHAR(255),
+    review TEXT,
+    data DATE,
+    estrelas INT,
+    PRIMARY KEY (cod, username),
+    FOREIGN KEY (cod) REFERENCES Obras(cod),
+    FOREIGN KEY (username) REFERENCES Conta(username)
+);
+
+-- Tabela Comentario
+CREATE TABLE Comentario (
+    id INT,
+    data DATE,
+    texto TEXT,
+    cod INT,
+    username VARCHAR(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (cod) REFERENCES Obras(cod),
+    FOREIGN KEY (username) REFERENCES Conta(username)
+);
+
+-- Tabela Adiciona
+CREATE TABLE Adiciona (
+    ID INT,
+    COD INT,
+    USERNAME VARCHAR(255),
+    DATA DATE,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (COD) REFERENCES Obras(cod),
+    FOREIGN KEY (USERNAME) REFERENCES Conta(username)
+);
