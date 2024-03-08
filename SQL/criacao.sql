@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS letterboxd;
+USE letterboxd;
 -- Tabela Usuário
 CREATE TABLE Usuario (
     email VARCHAR(255) PRIMARY KEY,
@@ -17,7 +19,7 @@ CREATE TABLE Conta (
 CREATE TABLE Seguir (
     segue VARCHAR(255),
     seguido VARCHAR(255),
-    data DATE,
+    data DATE NOT NULL,
     PRIMARY KEY (segue, seguido),
     FOREIGN KEY (segue) REFERENCES Conta(username),
     FOREIGN KEY (seguido) REFERENCES Conta(username)
@@ -27,17 +29,17 @@ CREATE TABLE Seguir (
 CREATE TABLE Artigo (
     username VARCHAR(255),
     data DATE,
-    type VARCHAR(255),
-    titulo VARCHAR(255),
-    visualizacoes INT,
-    conteudo TEXT,
-    PRIMARY KEY (username, data, titulo),
+    type VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    visualizacoes INT NOT NULL DEFAULT 0,
+    conteudo TEXT NOT NULL,
+    PRIMARY KEY (username, data),
     FOREIGN KEY (username) REFERENCES Conta(username)
 );
 
 -- Tabela Obras
 CREATE TABLE Obras (
-    cod INT PRIMARY KEY,
+    cod INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
     genero VARCHAR(255)
 );
@@ -78,8 +80,8 @@ CREATE TABLE Livros (
 
 -- Tabela Playlist
 CREATE TABLE Playlist (
-    id INT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255),
     FOREIGN KEY (username) REFERENCES Conta(username)
 );
 
@@ -88,8 +90,8 @@ CREATE TABLE Avalia (
     cod INT,
     username VARCHAR(255),
     review TEXT,
-    data DATE,
-    estrelas INT,
+    data DATE NOT NULL,
+    estrelas DECIMAL(1,1) NOT NULL,
     PRIMARY KEY (cod, username),
     FOREIGN KEY (cod) REFERENCES Obras(cod),
     FOREIGN KEY (username) REFERENCES Conta(username)
@@ -97,9 +99,9 @@ CREATE TABLE Avalia (
 
 -- Tabela Comentario
 CREATE TABLE Comentario (
-    id INT,
-    data DATE,
-    texto TEXT,
+    id INT AUTO_INCREMENT,
+    data DATE NOT NULL,
+    texto TEXT NOT NULL,
     cod INT,
     username VARCHAR(255),
     PRIMARY KEY (id),
@@ -112,7 +114,7 @@ CREATE TABLE Adiciona (
     ID INT,
     COD INT,
     USERNAME VARCHAR(255),
-    DATA DATE,
+    DATA DATE NOT NULL,
     PRIMARY KEY (ID),
     FOREIGN KEY (COD) REFERENCES Obras(cod),
     FOREIGN KEY (USERNAME) REFERENCES Conta(username)
