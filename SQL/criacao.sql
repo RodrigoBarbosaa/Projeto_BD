@@ -93,8 +93,8 @@ CREATE TABLE Avalia (
     data DATE NOT NULL,
     estrelas DECIMAL(2,1) NOT NULL,
     PRIMARY KEY (cod, username),
-    FOREIGN KEY (cod) REFERENCES Obras(cod),
-    FOREIGN KEY (username) REFERENCES Conta(username)
+    FOREIGN KEY (cod) REFERENCES Obras(cod) ON DELETE CASCADE,
+    FOREIGN KEY (username) REFERENCES Conta(username) ON DELETE CASCADE
 );
 
 -- Tabela Comentario
@@ -105,8 +105,8 @@ CREATE TABLE Comentario (
     cod INT,
     username VARCHAR(255),
     PRIMARY KEY (id),
-    FOREIGN KEY (cod) REFERENCES Obras(cod),
-    FOREIGN KEY (username) REFERENCES Conta(username)
+    FOREIGN KEY (cod) REFERENCES Obras(cod) ON DELETE CASCADE,
+    FOREIGN KEY (username) REFERENCES Conta(username) ON DELETE CASCADE
 );
 
 -- Tabela Adiciona
