@@ -25,11 +25,11 @@ INSERT INTO Conta (username, senha, email) VALUES
 INSERT INTO Obras (nome, genero) VALUES
 ('Dom Quixote', 'Romance'),
 ('1984', 'Ficção Científica'),
-('Orgulho e Preconceito', 'Romance'),
+('Duna 2', 'Ficção Científica'),
+('Clube da Luta', 'Suspense'),
 ('O Senhor dos Anéis', 'Fantasia'),
-('Crime e Castigo', 'Romance Psicológico'),
+('Interstellar', 'Ficção Científica'),
 ('Harry Potter e a Pedra Filosofal', 'Fantasia'),
-('Cem Anos de Solidão', 'Realismo Mágico'),
-('A Revolução dos Bichos', 'Sátira Política'),
-('A Metamorfose', 'Ficção Absurda'),
-('A Guerra dos Tronos', 'Fantasia Épica');
+('Psicopata Americano', 'Comédia'),
+('Amor e Outras Drogas', 'Comédia Romântica'),
+('A Metamorfose', 'Ficção Absurda');
