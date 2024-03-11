@@ -29,9 +29,9 @@ CREATE TABLE Seguir (
 CREATE TABLE Artigo (
     username VARCHAR(255),
     data DATE,
-    type VARCHAR(255) NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    visualizacoes INT NOT NULL DEFAULT 0,
+    tipo VARCHAR(255) NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    views INT NOT NULL DEFAULT 0,
     conteudo TEXT NOT NULL,
     PRIMARY KEY (username, data),
     FOREIGN KEY (username) REFERENCES Conta(username)
@@ -51,6 +51,7 @@ CREATE TABLE Filmes (
     atores VARCHAR(255),
     producao VARCHAR(255),
     diretor VARCHAR(255),
+    duracao INT,
     FOREIGN KEY (cod) REFERENCES Obras(cod)
 );
 
@@ -82,6 +83,7 @@ CREATE TABLE Livros (
 CREATE TABLE Playlist (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255),
+    nome VARCHAR(255) NOT NULL,
     FOREIGN KEY (username) REFERENCES Conta(username)
 );
 
@@ -102,6 +104,7 @@ CREATE TABLE Comentario (
     id INT AUTO_INCREMENT,
     data DATE NOT NULL,
     texto TEXT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
     cod INT,
     username VARCHAR(255),
     PRIMARY KEY (id),
