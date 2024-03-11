@@ -97,3 +97,17 @@ INSERT INTO Playlist (username, nome) VALUES
 ('juliana.f', 'Filmes de Ficção'),
 ('juliana.f', 'Playlist Lua de Mel'),
 ('ana.c', 'Filmes com conteúdo +18');
+
+INSERT INTO Adiciona (id, cod, username, data) VALUES
+(1, 11, 'joao.s', '2024-03-10'),
+(1, 8, 'joao.s', '2024-03-10'),
+(1, 6, 'joao.s', '2024-03-9'),
+(1, 1, 'joao.s', '2024-03-01'),
+(1, 5, 'joao.s', '2024-03-10'),
+(1, 3, 'maria.o', '2024-03-02'),
+(3, 3, 'juliana.f', '2024-02-29'),
+(3, 6, 'ana.c', '2024-03-01'),
+(4, 9, 'juliana.f', '2024-03-02'),
+(4, 2, 'lucas.a', '2024-03-02'),
+(4, 3, 'lucas.a', '2024-03-02'),
+(5, 7, 'ana.c', '2024-03-08');
