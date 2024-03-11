@@ -32,7 +32,8 @@ INSERT INTO Obras (nome, genero) VALUES
 ('Harry Potter e a Pedra Filosofal', 'Fantasia'),
 ('Psicopata Americano', 'Comédia'),
 ('Amor e Outras Drogas', 'Comédia Romântica'),
-('A Metamorfose', 'Ficção Absurda');
+('A Metamorfose', 'Ficção Absurda'),
+('Batman O Cavaleiro Das Trevas', 'Ação');
 
 INSERT INTO Avalia (cod, username, data, review, estrelas) VALUES
 (1, 'marcelo.l', '2023-12-08', 'AMEI ESTE LIVRO, ROMANCE DE PRIMEIRA CLASSE. DOM QUIXOTE É MUITO BRABO NA PORRADA.', 2.0),
@@ -53,7 +54,8 @@ INSERT INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES
 (4, 'Edward Norton', 'Brad Pitt', 'Antonio', 'David Fincher', 140),
 (6, 'Matthew McConaughey', 'Jessica Chastian', 'Rodrigo', 'Christopher Nolan', 160),
 (8, 'Christian Bale', 'Jared Leto', 'Gabriel', 'Mary Harron', 100),
-(9, 'Robson Fidalgo', 'Clara', 'Mariana', 'Pericles Sardinha', 110);
+(9, 'Robson Fidalgo', 'Clara', 'Mariana', 'Pericles Sardinha', 110),
+(11, 'Christian Bale', 'Morgan Freeman', 'Rodrigo', 'Christopher Nolan', 150);
 
 INSERT INTO atores (cod, ator) VALUES
 (3, 'Zendaya'),
