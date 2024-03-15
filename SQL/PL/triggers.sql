@@ -1,5 +1,4 @@
--- CRIA UMA TRIGGER PARA IMPIRIMIR O NOME DA PLAYLIST QUANDO OCORRE UM INSERT NA TABELA ADICIONA
--- ADICIONA
+-- CRIA UMA TRIGGER PARA IMPIRIMIR O NOME DA PLAYLIST QUANDO OCORRE UM INSERT NA TABELA ADICIONA ADICIONA
 CREATE OR REPLACE TRIGGER TG_AFTER_ADICIONA_INSERT
 AFTER INSERT
 ON Adiciona
@@ -27,3 +26,20 @@ BEGIN
     FROM playlist;
     PR_INSERT_PLAYLIST(id_playlist, favoritos, :NEW.username);
 END;
+
+-- mostrar os artigos com o tipo igual e maiores views para recomendações personalizadas
+CREATE OR REPLACE TRIGGER TG_ARTIGO_INSERT
+BEFORE INSERT
+ON Artigo
+FOR EACH ROW
+DECLARE
+    tipo_artigo Artigo.tipo%TYPE;
+    resultado VARCHAR2(255);
+BEGIN
+	tipo_artigo := :NEW.tipo;
+
+	resultado := FUNC_RECOMENDACAO_ARTIGOS(tipo_artigo);
+
+	DBMS_OUTPUT.PUT_LINE(resultado);
+END;
+

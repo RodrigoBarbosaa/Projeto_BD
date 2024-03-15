@@ -26,12 +26,12 @@ CREATE TABLE Seguir (
 -- Tabela Artigo
 CREATE TABLE Artigo (
     username VARCHAR2(255),
-    data DATE,
+    data DATE NOT NULL,
     tipo VARCHAR2(255) NOT NULL,
     titulo VARCHAR2(255) NOT NULL,
     views NUMBER(10,0) NOT NULL,
     conteudo CLOB NOT NULL,
-    CONSTRAINT pk_artigo PRIMARY KEY (username, data),
+    CONSTRAINT pk_artigo PRIMARY KEY (username, titulo),
     CONSTRAINT fk_artigo_username FOREIGN KEY (username) REFERENCES Conta(username)
 );
 
@@ -99,7 +99,7 @@ CREATE TABLE Avalia (
 
 -- Tabela Comentario
 CREATE TABLE Comentario (
-    id NUMBER GENERATED ALWAYS AS IDENTITY,
+    id NUMBER,
     data DATE NOT NULL,
     texto CLOB NOT NULL,
     nome VARCHAR2(255) NOT NULL,
