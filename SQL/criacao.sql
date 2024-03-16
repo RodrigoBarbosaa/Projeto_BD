@@ -11,7 +11,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Conta (
     username VARCHAR(255) PRIMARY KEY,
     senha VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE,
+    email VARCHAR(255) UNIQUE NOT NULL,
     FOREIGN KEY (email) REFERENCES Usuario(email)
 );
 
@@ -28,12 +28,12 @@ CREATE TABLE Seguir (
 -- Tabela Artigo
 CREATE TABLE Artigo (
     username VARCHAR(255),
-    data DATE,
+    data DATE NOT NULL,
     tipo VARCHAR(255) NOT NULL,
-    titulo VARCHAR(255) NOT NULL,
+    titulo VARCHAR(255),
     views INT NOT NULL DEFAULT 0,
     conteudo TEXT NOT NULL,
-    PRIMARY KEY (username, data),
+    PRIMARY KEY (username, titulo),
     FOREIGN KEY (username) REFERENCES Conta(username)
 );
 
@@ -47,9 +47,6 @@ CREATE TABLE Obras (
 -- Tabela Filmes
 CREATE TABLE Filmes (
     cod INT PRIMARY KEY,
-    elenco VARCHAR(255),
-    atores VARCHAR(255),
-    producao VARCHAR(255),
     diretor VARCHAR(255),
     duracao INT,
     FOREIGN KEY (cod) REFERENCES Obras(cod)
@@ -82,7 +79,7 @@ CREATE TABLE Livros (
 -- Tabela Playlist
 CREATE TABLE Playlist (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255),
+    username VARCHAR(255) NOT NULL,
     nome VARCHAR(255) NOT NULL,
     FOREIGN KEY (username) REFERENCES Conta(username)
 );
@@ -105,8 +102,8 @@ CREATE TABLE Comentario (
     data DATE NOT NULL,
     texto TEXT NOT NULL,
     nome VARCHAR(255) NOT NULL,
-    cod INT,
-    username VARCHAR(255),
+    cod INT NOT NULL,
+    username VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (cod) REFERENCES Obras(cod) ON DELETE CASCADE,
     FOREIGN KEY (username) REFERENCES Conta(username) ON DELETE CASCADE
@@ -120,5 +117,6 @@ CREATE TABLE Adiciona (
     DATA DATE NOT NULL,
     PRIMARY KEY (ID, COD, USERNAME),
     FOREIGN KEY (COD) REFERENCES Obras(cod),
-    FOREIGN KEY (USERNAME) REFERENCES Conta(username)
+    FOREIGN KEY (USERNAME) REFERENCES Conta(username),
+    FOREIGN KEY (ID) REFERENCES Playlist(ID)
 );

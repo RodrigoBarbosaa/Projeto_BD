@@ -9,7 +9,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Conta (
     username VARCHAR2(255) PRIMARY KEY,
     senha VARCHAR2(255) NOT NULL,
-    email VARCHAR2(255) UNIQUE,
+    email VARCHAR2(255) UNIQUE NOT NULL,
     CONSTRAINT fk_email FOREIGN KEY (email) REFERENCES Usuario(email)
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE Artigo (
     username VARCHAR2(255),
     data DATE NOT NULL,
     tipo VARCHAR2(255) NOT NULL,
-    titulo VARCHAR2(255) NOT NULL,
+    titulo VARCHAR2(255),
     views NUMBER(10,0) NOT NULL,
     conteudo CLOB NOT NULL,
     CONSTRAINT pk_artigo PRIMARY KEY (username, titulo),
@@ -45,9 +45,6 @@ CREATE TABLE Obras (
 -- Tabela Filmes
 CREATE TABLE Filmes (
     cod NUMBER PRIMARY KEY,
-    elenco VARCHAR2(255),
-    atores VARCHAR2(255),
-    producao VARCHAR2(255),
     diretor VARCHAR2(255),
     duracao NUMBER,
     CONSTRAINT fk_filmes_cod FOREIGN KEY (cod) REFERENCES Obras(cod)
@@ -80,7 +77,7 @@ CREATE TABLE Livros (
 -- Tabela Playlist
 CREATE TABLE Playlist (
     id NUMBER PRIMARY KEY,
-    username VARCHAR2(255),
+    username VARCHAR2(255) NOT NULL,
     nome VARCHAR2(255) NOT NULL,
     CONSTRAINT fk_playlist_username FOREIGN KEY (username) REFERENCES Conta(username)
 );
@@ -103,8 +100,8 @@ CREATE TABLE Comentario (
     data DATE NOT NULL,
     texto CLOB NOT NULL,
     nome VARCHAR2(255) NOT NULL,
-    cod NUMBER,
-    username VARCHAR2(255),
+    cod NUMBER NOT NULL,
+    username VARCHAR2(255) NOT NULL,
     CONSTRAINT pk_comentario PRIMARY KEY (id),
     CONSTRAINT fk_comentario_cod FOREIGN KEY (cod) REFERENCES Obras(cod) ON DELETE CASCADE,
     CONSTRAINT fk_comentario_username FOREIGN KEY (username) REFERENCES Conta(username) ON DELETE CASCADE
@@ -118,5 +115,6 @@ CREATE TABLE Adiciona (
     DATA DATE NOT NULL,
     CONSTRAINT pk_adiciona PRIMARY KEY (ID, COD, USERNAME),
     CONSTRAINT fk_adiciona_cod FOREIGN KEY (COD) REFERENCES Obras(cod),
-    CONSTRAINT fk_adiciona_username FOREIGN KEY (USERNAME) REFERENCES Conta(username)
+    CONSTRAINT fk_adiciona_username FOREIGN KEY (USERNAME) REFERENCES Conta(username),
+    CONSTRAINT fk_adiciona_playlist FOREIGN KEY (ID) REFERENCES Playlist(ID)
 );

@@ -44,6 +44,7 @@ INTO Avalia (cod, username, data, review, estrelas) VALUES (3, 'juliana.f', TO_D
 INTO Avalia (cod, username, data, review, estrelas) VALUES (10, 'ana.c', TO_DATE('2024-01-23', 'YYYY-MM-DD'), 'QUE BARATONA SAPECA! LIVRO IMPECÁVEL E MUDOU MINHA PERCEPÇÃO DE MUNDO.', 5.0)
 INTO Avalia (cod, username, data, review, estrelas) VALUES (6, 'maria.o', TO_DATE('2023-12-29', 'YYYY-MM-DD'), 'BURACO NEGROOOOOOOOOOOOOOOOOOOOOOOOO.', 5.0)
 INTO Avalia (cod, username, data, review, estrelas) VALUES (7, 'joao.s', TO_DATE('2024-01-12', 'YYYY-MM-DD'), 'ARRASTA A TABACA NA VARA VAI SENTANDO NA VASSOURA EITA BRUXINHA RABUDA.', 4.0)
+INTO Avalia (cod, username, data, review, estrelas) VALUES (1, 'joao.s', TO_DATE('2024-01-23', 'YYYY-MM-DD'), 'BOM DIA PRINCESAAA PUFAVO SENTI NA GLOCK', 5.0);
 SELECT * FROM dual;
 
 INSERT ALL 
@@ -55,12 +56,12 @@ INTO Livros (cod, paginas, escritor) VALUES (10, 112 ,'Franz Kafka')
 SELECT * FROM dual;
 
 INSERT ALL 
-INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES (3, 'Thimothee Chalamet', 'Zendaya', 'Geydson', 'Denis Villeneuve', 160)
-INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES (4, 'Edward Norton', 'Brad Pitt', 'Antonio', 'David Fincher', 140)
-INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES (6, 'Matthew McConaughey', 'Jessica Chastian', 'Rodrigo', 'Christopher Nolan', 160)
-INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES (8, 'Christian Bale', 'Jared Leto', 'Gabriel', 'Mary Harron', 100)
-INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES (9, 'Robson Fidalgo', 'Clara', 'Mariana', 'Pericles Sardinha', 110)
-INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES (11, 'Christian Bale', 'Morgan Freeman', 'Rodrigo', 'Christopher Nolan', 150)
+INTO Filmes (cod, diretor, duracao) VALUES (3, 'Denis Villeneuve', 160)
+INTO Filmes (cod, diretor, duracao) VALUES (4, 'David Fincher', 140)
+INTO Filmes (cod, diretor, duracao) VALUES (6, 'Christopher Nolan', 160)
+INTO Filmes (cod, diretor, duracao) VALUES (8, 'Mary Harron', 100)
+INTO Filmes (cod, diretor, duracao) VALUES (9, 'Pericles Sardinha', 110)
+INTO Filmes (cod, diretor, duracao) VALUES (11, 'Christopher Nolan', 150)
 SELECT * FROM dual;
 
 INSERT ALL 

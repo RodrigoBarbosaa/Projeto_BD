@@ -27,10 +27,13 @@ where not exists (select a.cod
 SELECT username, (select count(*) from avalia a where c.username = a.username) AS sexo
 from conta c;
 
--- Nome dos filmes que apresentam o mesmo diretor e a pessoa chave da produção do filme de codigo 11 (SUBCONSULTA LINHA) --
-SELECT nome
-from obras o inner join filmes f on f.cod = o.cod
-where (f.diretor, f.producao) = (select diretor, producao from filmes f1 where f1.cod = 11) and o.cod != 11;
+-- quais os usernames das contas que fizeram avaliações de obras na mesma data e com as mesmas estrelas da conta de username 'joao.s' --
+SELECT username
+FROM Avalia a 
+WHERE (data, estrelas) = (select data, estrelas
+						  FROM Avalia a1
+						  WHERE a1.username = 'joao.s' AND
+						  		a.cod = a1.cod) AND username <> 'joao.s';
 
 -- O nome das obras que foram avaliadas (SUBCONSULTA TABELA) --
 SELECT o.nome

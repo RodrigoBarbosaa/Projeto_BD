@@ -40,7 +40,8 @@ INSERT INTO Avalia (cod, username, data, review, estrelas) VALUES
 (3, 'juliana.f', '2024-03-10', 'FILME DE PRIMEIRA CLASSE, COBRONA BEM DETALHADA E GRANDE.', 4.5),
 (10, 'ana.c', '2024-01-23', 'QUE BARATONA SAPECA! LIVRO IMPECÁVEL E MUDOU MINHA PERCEPÇÃO DE MUNDO.', 5.0),
 (6, 'maria.o', '2023-12-29', 'BURACO NEGROOOOOOOOOOOOOOOOOOOOOOOOO.', 5.0),
-(7, 'joao.s', '2024-01-12', 'ARRASTA A TABACA NA VARA VAI SENTANDO NA VASSOURA EITA BRUXINHA RABUDA.', 4.0);
+(7, 'joao.s', '2024-01-12', 'ARRASTA A TABACA NA VARA VAI SENTANDO NA VASSOURA EITA BRUXINHA RABUDA.', 4.0),
+(10, 'joao.s', '2024-01-23', 'BOM DIA PRINCESAAA PUFAVO SENTI NA GLOCK', 5.0);
 
 INSERT INTO Livros (cod, paginas, escritor) VALUES
 (1, 1033, 'Miguel de Cervantes'),
@@ -49,13 +50,13 @@ INSERT INTO Livros (cod, paginas, escritor) VALUES
 (7, 208, 'J. K. Rowling'),
 (10, 112 ,'Franz Kafka');
 
-INSERT INTO Filmes (cod, elenco, atores, producao, diretor, duracao) VALUES
-(3, 'Thimothee Chalamet', 'Zendaya', 'Geydson', 'Denis Villeneuve', 160),
-(4, 'Edward Norton', 'Brad Pitt', 'Antonio', 'David Fincher', 140),
-(6, 'Matthew McConaughey', 'Jessica Chastian', 'Rodrigo', 'Christopher Nolan', 160),
-(8, 'Christian Bale', 'Jared Leto', 'Gabriel', 'Mary Harron', 100),
-(9, 'Robson Fidalgo', 'Clara', 'Mariana', 'Pericles Sardinha', 110),
-(11, 'Christian Bale', 'Morgan Freeman', 'Rodrigo', 'Christopher Nolan', 150);
+INSERT INTO Filmes (cod, diretor, duracao) VALUES
+(3, 'Denis Villeneuve', 160),
+(4, 'David Fincher', 140),
+(6, 'Christopher Nolan', 160),
+(8, 'Mary Harron', 100),
+(9, 'Pericles Sardinha', 110),
+(11, 'Christopher Nolan', 150);
 
 INSERT INTO atores (cod, ator) VALUES
 (3, 'Zendaya'),
