@@ -9,7 +9,7 @@ END;
 -- procedure para devolver todos os comentarios de uma determinada conta
 CREATE OR REPLACE TYPE tipo_comentarios AS TABLE OF CLOB;
 
-CREATE OR REPLACE PROCEDURE PR_CONTA_COMENTARIOS (username_conta IN VARCHAR2, comentarios OUT tipo_comentarios)
+CREATE OR REPLACE PROCEDURE PR_CONTA_COMENTARIOS (username_conta IN VARCHAR2)
 IS
     comentarios tipo_comentarios;
 BEGIN
