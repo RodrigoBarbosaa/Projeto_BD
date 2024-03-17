@@ -27,7 +27,7 @@ where not exists (select a.cod
 SELECT username, (select count(*) from avalia a where c.username = a.username) AS sexo
 from conta c;
 
--- quais os usernames das contas que fizeram avaliações de obras na mesma data e com as mesmas estrelas da conta de username 'joao.s' --
+-- quais os usernames das contas que fizeram avaliações de obras na mesma data e com as mesmas estrelas da conta de username 'joao.s' (SUBCONSULTA TIPO LINHA) --
 SELECT username
 FROM Avalia a 
 WHERE (data, estrelas) = (select data, estrelas
