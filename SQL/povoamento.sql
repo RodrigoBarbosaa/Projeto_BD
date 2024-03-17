@@ -112,3 +112,20 @@ INSERT INTO Adiciona (id, cod, username, data) VALUES
 (4, 2, 'lucas.a', '2024-03-02'),
 (4, 3, 'lucas.a', '2024-03-02'),
 (5, 7, 'ana.c', '2024-03-08');
+
+INSERT INTO Seguir (segue, seguido, data) VALUES
+('joao.s', 'maria.o', '2012-05-22'),
+('joao.s', 'juliana.f', '2012-05-22'),
+('joao.s', 'ana.c', '2012-05-27'),
+('lucas.a', 'maria.o', '2023-11-22'),
+('maria.o', 'juliana.f', '2022-09-03'),
+('maria.o', 'joao.s', '2012-05-22'),
+('maria.o', 'lucas.a', '2023-09-01'),
+('ana.c', 'maria.o', '2015-3-12'),
+('marcelo.l', 'juliana.f', '2017-12-09'),
+('juliana.f', 'marcelo.l', '2017-12-10'),
+('luiza.s', 'camila.r', '2017-04-13'),
+('luiza.s', 'maria.o', '2021-04-13'),
+('carlos.p', 'camila.r','2017-03-21'),
+('camila.r', 'carlos.p', '2019-10-01'),
+('juliana.f', 'carlos.p', '2018-01-22');

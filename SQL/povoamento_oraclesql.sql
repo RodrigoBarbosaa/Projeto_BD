@@ -124,3 +124,21 @@ INTO Adiciona (id, cod, username, data) VALUES (4, 2, 'lucas.a', TO_DATE('2024-0
 INTO Adiciona (id, cod, username, data) VALUES (4, 3, 'lucas.a', TO_DATE('2024-03-02', 'YYYY-MM-DD')) 
 INTO Adiciona (id, cod, username, data) VALUES (5, 7, 'ana.c', TO_DATE('2024-03-08', 'YYYY-MM-DD')) 
 SELECT * FROM dual;
+
+INSERT ALL
+INTO Seguir (segue, seguido, data) VALUES ('joao.s', 'maria.o', TO_DATE('2012-05-22', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('joao.s', 'juliana.f', TO_DATE('2012-05-22', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('joao.s', 'ana.c', TO_DATE('2012-05-27', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('lucas.a', 'maria.o', TO_DATE('2023-11-22', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('maria.o', 'juliana.f', TO_DATE('2022-09-03', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('maria.o', 'joao.s', TO_DATE('2012-05-22', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('maria.o', 'lucas.a', TO_DATE('2023-09-01', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('ana.c', 'maria.o', TO_DATE('2015-03-12', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('marcelo.l', 'juliana.f', TO_DATE('2017-12-09', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('juliana.f', 'marcelo.l', TO_DATE('2017-12-10', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('luiza.s', 'camila.r', TO_DATE('2021-04-13', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('luiza.s', 'maria.o', TO_DATE('2021-04-13', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('carlos.p', 'camila.r', TO_DATE('2017-03-21', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('camila.r', 'carlos.p', TO_DATE('2019-10-01', 'YYYY-MM-DD'))
+INTO Seguir (segue, seguido, data) VALUES ('juliana.f', 'carlos.p', TO_DATE('2018-01-22', 'YYYY-MM-DD'))
+SELECT * FROM dual;
