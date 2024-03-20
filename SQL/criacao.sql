@@ -105,8 +105,8 @@ CREATE TABLE Comentario (
     cod INT NOT NULL,
     username VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (cod) REFERENCES Obras(cod) ON DELETE CASCADE,
-    FOREIGN KEY (username) REFERENCES Conta(username) ON DELETE CASCADE
+    FOREIGN KEY (cod) REFERENCES Avalia(cod) ON DELETE CASCADE,
+    FOREIGN KEY (username) REFERENCES Avalia(username) ON DELETE CASCADE
 );
 
 -- Tabela Adiciona
