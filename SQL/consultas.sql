@@ -57,11 +57,11 @@ where o.cod in (select a.cod
 select c.username, a.review
 from conta c left outer join avalia a on c.username = a.username;
 
--- Mostrar todos os artigos das contas de username ana.c e lucas.a --
+-- Mostrar o titulo de todos os artigos das contas de username ana.c e lucas.a --
 --(OPERADOR DE CONJUNTO UNION (UNIÃO)) --
-(select * from artigo a where a.username = 'ana.c')
+select TITULO from artigo a where a.username = 'ana.c'
 UNION 
-(select * from artigo a1 where a1.username = 'lucas.a');
+select TITULO from artigo a1 where a1.username = 'lucas.a';
 
 
 
