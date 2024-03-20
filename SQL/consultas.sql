@@ -27,12 +27,13 @@ where not exists (select a.cod
 SELECT username, (select count(*) from avalia a where c.username = a.username)
 from conta c;
 
--- Código da obra de uma avaliação que recebeu comentário de id = 6 (SUBCONSULTA TIPO LINHA) --
-select cod
-from avalia a
-where (username, cod) = (select username, cod
-						 from comentario
-                         where id = 6);
+-- Contas que seguiram e foram seguidas por uma mesma conta (SUBCONSULTA TIPO LINHA) --
+SELECT segue, seguido
+FROM seguir s 
+WHERE (seguido, segue) = (select segue, seguido
+						  FROM seguir s1
+						  WHERE s.segue = s1.seguido AND
+								s1.segue = s.seguido)
 
 
 -- O nome das obras que foram avaliadas (SUBCONSULTA TABELA) --
