@@ -27,13 +27,13 @@ where not exists (select a.cod
 SELECT username, (select count(*) from avalia a where c.username = a.username) AS sexo
 from conta c;
 
--- quais os usernames das contas que fizeram avaliações de obras na mesma data e com as mesmas estrelas da conta de username 'joao.s' (SUBCONSULTA TIPO LINHA) --
-SELECT username
-FROM Avalia a 
-WHERE (data, estrelas) = (select data, estrelas
-						  FROM Avalia a1
-						  WHERE a1.username = 'joao.s' AND
-						  		a.cod = a1.cod) AND username <> 'joao.s';
+
+-- Código da obra de uma avaliação que recebeu comentário de id = 6 (SUBCONSULTA TIPO LINHA) --
+select cod
+from avalia a
+where (username, cod) = (select username, cod
+						 from comentario
+                         where id = 6);
 
 -- O nome das obras que foram avaliadas (SUBCONSULTA TABELA) --
 SELECT o.nome
