@@ -24,10 +24,11 @@ where not exists (select a.cod
 				where o.cod = a.cod);
                 
 -- Quantidade de obras avaliadas por uma conta (SUBCONSULTA ESCALAR) --
-SELECT username, (select count(*) from avalia a where c.username = a.username) AS sexo
+SELECT username, (select count(*) from avalia a where c.username = a.username)
 from conta c;
 
--- quais os usernames das contas que fizeram avaliações de obras na mesma data e com as mesmas estrelas da conta de username 'joao.s' (SUBCONSULTA TIPO LINHA) --
+-- quais os usernames das contas que fizeram avaliações de obras na mesma data --
+--e com as mesmas estrelas da conta de username 'joao.s' (SUBCONSULTA TIPO LINHA) --
 SELECT username
 FROM Avalia a 
 WHERE (data, estrelas) = (select data, estrelas
@@ -42,11 +43,13 @@ where o.cod in (select a.cod
 				from avalia a
 				where o.cod = a.cod);
 
--- MOSTRAR O USERNAME DAS PESSOAS QUE POSSUEM E NÃO POSSUEM AVALIAÇÃO E SUAS RESPECTIVAS AVALIAÇÕES (JUNÇÃO EXTERNA) --
+-- MOSTRAR O USERNAME DAS PESSOAS QUE POSSUEM E NÃO POSSUEM AVALIAÇÃO --
+-- E SUAS RESPECTIVAS AVALIAÇÕES (JUNÇÃO EXTERNA) --
 select c.username, a.review
 from conta c left outer join avalia a on c.username = a.username;
 
--- Mostrar todos os artigos das contas de username ana.c e lucas.a (OPERADOR DE CONJUNTO UNION (UNIÃO)) --
+-- Mostrar todos os artigos das contas de username ana.c e lucas.a --
+--(OPERADOR DE CONJUNTO UNION (UNIÃO)) --
 (select * from artigo a where a.username = 'ana.c')
 UNION 
 (select * from artigo a1 where a1.username = 'lucas.a');
