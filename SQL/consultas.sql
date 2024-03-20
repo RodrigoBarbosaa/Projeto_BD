@@ -31,8 +31,8 @@ from conta c;
 select cod
 from avalia a
 where (username, cod) = (select username, cod
-						 from comentario
-                         where id = 6);
+				from comentario 
+				where id = 6);
 
 
 -- O nome das obras que foram avaliadas (SUBCONSULTA TABELA) --
