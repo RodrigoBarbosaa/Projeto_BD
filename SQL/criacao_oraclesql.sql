@@ -103,8 +103,8 @@ CREATE TABLE Comentario (
     cod NUMBER NOT NULL,
     username VARCHAR2(255) NOT NULL,
     CONSTRAINT pk_comentario PRIMARY KEY (id),
-    CONSTRAINT fk_comentario_cod FOREIGN KEY (cod) REFERENCES Obras(cod) ON DELETE CASCADE,
-    CONSTRAINT fk_comentario_username FOREIGN KEY (username) REFERENCES Conta(username) ON DELETE CASCADE
+    CONSTRAINT fk_comentario_cod FOREIGN KEY (cod) REFERENCES Avalia(cod) ON DELETE CASCADE,
+    CONSTRAINT fk_comentario_username FOREIGN KEY (username) REFERENCES Avalia(username) ON DELETE CASCADE
 );
 
 -- Tabela Adiciona
