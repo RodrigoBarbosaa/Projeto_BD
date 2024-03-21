@@ -39,8 +39,7 @@ WHERE (seguido, segue) = (select segue, seguido
 SELECT o.nome
 from obras o
 where o.cod in (select a.cod
-				from avalia a
-				where o.cod = a.cod);
+				from avalia a);
 
 -- MOSTRAR O USERNAME DAS PESSOAS QUE POSSUEM E NÃO POSSUEM AVALIAÇÃO --
 -- E SUAS RESPECTIVAS AVALIAÇÕES (JUNÇÃO EXTERNA) --
